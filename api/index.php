@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>DIARIO EL HOCICÓN</title>
-    <link rel="icon" href="logonoticieron.png">
+    <link rel="icon" href="https://img.freepik.com/vector-premium/icono-noticias-articulos-periodicos-diseno-color-azul_965649-18264.jpg">
 
     <!-- Bootstrap moderno -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
