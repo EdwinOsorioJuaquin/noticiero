@@ -1,186 +1,581 @@
+
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DIARIO EL HOCICÓN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <link rel="icon" href="https://img.freepik.com/vector-premium/icono-noticias-articulos-periodicos-diseno-color-azul_965649-18264.jpg">
 
-    <!-- Bootstrap moderno -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>UNS NOTICIAS</title>
 
-    <!-- Fuentes y estilos -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #f4f5f7;
-        color: #212529;
-      }
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-      .blog-header {
-        border-bottom: 4px solid #0d6efd;
-        background-color: #ffffff;
-        padding: 1rem 0;
-        margin-bottom: 2rem;
-      }
-
-      .blog-header-logo {
-        font-family: 'Playfair Display', serif;
-        font-size: 2rem;
-        color: #0d6efd;
-        text-decoration: none;
-        letter-spacing: 1px;
-      }
-
-      .jumbotron {
-        background: linear-gradient(135deg, #0d6efd, #6610f2);
-        border-radius: 12px;
-        color: #fff;
-        padding: 3rem 2rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      }
-
-      .card {
-        border-radius: 10px;
-        overflow: hidden;
-        transition: transform 0.2s ease-in-out;
-      }
-      .card:hover {
-        transform: scale(1.02);
-      }
-
-      .card-body h3 a {
-        text-decoration: none;
-      }
-
-      footer {
-        background-color: #0d6efd;
-        color: white;
-        text-align: center;
-        padding: 1.5rem 0;
-        margin-top: 3rem;
-      }
-
-      footer a {
-        color: #ffc107;
-        text-decoration: none;
-      }
-
-      footer a:hover {
-        text-decoration: underline;
-      }
-
-      img.card-img-left {
-        width: 200px;
-        height: 100%;
-        object-fit: cover;
-      }
-    </style>
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/4.1/examples/blog/blog.css" rel="stylesheet">
   </head>
 
   <body>
+
     <div class="container">
-      <header class="blog-header text-center">
-        <a class="blog-header-logo" href="#">NOTICIAS SON NOTICIAS 2025</a>
+      <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-12 text-center">
+            <a class="blog-header-logo text-dark" href="#">NOTICIAS SON NOTICIAS 2025</a>
+          </div>
+        </div>
       </header>
 
       <?php
-        // PORTADA
-        $portada = [
-          "titulo" => "OSORIO JUAQUIN EDWIN",
-          "resumen" => "Ingeniero de Sistemas y periodista tecnológico que combina la innovación, el humor y la verdad en cada titular. Bienvenido al Diario El Hocicón, donde las noticias se cuentan... ¡sin pelos en la lengua!"
-        ];
+        include("secciones/portada.php");
       ?>
-
-      <div class="jumbotron text-center">
-        <h1 class="display-4 fw-bold"><?php echo $portada["titulo"]; ?></h1>
-        <p class="lead my-3"><?php echo $portada["resumen"]; ?></p>
+      <div class="jumbotron p-3 p-md-5 text-white rounded bg-primary">
+        <div class="col-md-12 px-0">
+          <h1 class="display-4 font-italic">
+            <?php
+              echo $portada["titulo"];
+            ?>
+          </h1>
+          <p class="lead my-3">
+            <?php
+              echo $portada["resumen"];
+            ?>
+          </p>
+        </div>
       </div>
 
-      <!-- Fila 1: INTERNACIONAL y NACIONAL -->
+      <!-- Fila 1 -->
       <?php
-        $internacional = [
-          "titulo" => "REAL MADRID GOLEA AL BARCELONA",
-          "autor" => "Edwin Osorio",
-          "resumen" => "El Club de Fútbol Real Madrid sorprende con una paliza histórica de 9-0 al Barcelona en la final de la Champions League 2026. Los hinchas celebran una noche inolvidable en el Santiago Bernabéu.",
-          "imagen" => "https://upload.wikimedia.org/wikipedia/commons/9/98/Real_Madrid_CF.svg"
-        ];
-
-        $nacional = [
-          "titulo" => "PERÚ LOGRA RÉCORD EN TECNOLOGÍA Y EDUCACIÓN DIGITAL",
-          "autor" => "Edwin Osorio",
-          "resumen" => "El Gobierno del Perú lanza la mayor iniciativa de transformación digital en universidades públicas, impulsando la educación híbrida con inteligencia artificial y software libre.",
-          "imagen" => "https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Peru.svg"
-        ];
+        include("secciones/internacional.php");
+        include("secciones/nacional.php");
       ?>
-
-      <div class="row mb-4">
-        <!-- Internacional -->
-        <div class="col-md-6 mb-3">
-          <div class="card shadow-sm flex-md-row h-100">
-            <?php if (!empty($internacional["imagen"])): ?>
-              <img class="card-img-left d-none d-md-block" 
-                   src="<?php echo htmlspecialchars($internacional["imagen"]); ?>" 
-                   alt="Imagen Internacional">
-            <?php endif; ?>
-            <div class="card-body d-flex flex-column justify-content-between">
-              <div>
-                <strong class="d-inline-block mb-2 text-primary">Internacional</strong>
-                <h3 class="mb-2">
-                  <a class="text-dark fw-bold" href="#">
-                    <?php echo htmlspecialchars($internacional["titulo"]); ?>
-                  </a>
-                </h3>
-                <div class="text-muted mb-2">
-                  <?php echo htmlspecialchars($internacional["autor"]); ?>
-                </div>
-                <p class="card-text">
-                  <?php echo htmlspecialchars($internacional["resumen"]); ?>
-                </p>
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-primary">Internacional</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $internacional["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $internacional["autor"];
+                ?>
               </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $internacional["resumen"];
+                ?>
+              </p>
             </div>
           </div>
         </div>
-
-        <!-- Nacional -->
-        <div class="col-md-6 mb-3">
-          <div class="card shadow-sm flex-md-row h-100">
-            <?php if (!empty($nacional["imagen"])): ?>
-              <img class="card-img-left d-none d-md-block" 
-                   src="<?php echo htmlspecialchars($nacional["imagen"]); ?>" 
-                   alt="Imagen Nacional">
-            <?php endif; ?>
-            <div class="card-body d-flex flex-column justify-content-between">
-              <div>
-                <strong class="d-inline-block mb-2 text-danger">Nacional</strong>
-                <h3 class="mb-2">
-                  <a class="text-dark fw-bold" href="#">
-                    <?php echo htmlspecialchars($nacional["titulo"]); ?>
-                  </a>
-                </h3>
-                <div class="text-muted mb-2">
-                  <?php echo htmlspecialchars($nacional["autor"]); ?>
-                </div>
-                <p class="card-text">
-                  <?php echo htmlspecialchars($nacional["resumen"]); ?>
-                </p>
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-success">Nacional</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $nacional["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $nacional["autor"];
+                ?>
               </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $nacional["resumen"];
+                ?>
+              </p>
             </div>
           </div>
         </div>
       </div>
+      <!-- Fin Fila 1 -->
 
-      <!-- Footer -->
-      <footer>
-        <p>© 2025 Diario El Hocicón — Creado por <strong>Edwin Osorio Juaquin</strong></p>
-        <p>
-          <a href="#">Volver arriba ↑</a>
-        </p>
-      </footer>
+      <!-- Fila 2 -->
+      <?php
+        include("secciones/economia.php");
+        include("secciones/opinion.php");
+      ?>
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-secondary">Economía</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $economia["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $economia["autor"];
+                ?>
+              </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $economia["resumen"];
+                ?>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-warning">Opinión</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $opinion["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $opinion["autor"];
+                ?>
+              </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $opinion["resumen"];
+                ?>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fin Fila 2 -->
+
+      <!-- Fila 3 -->
+      <?php
+        include("secciones/tecnologia.php");
+        include("secciones/ciencia.php");
+      ?>
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-primary">Tecnología</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $tecnologia["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $tecnologia["autor"];
+                ?>
+              </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $tecnologia["resumen"];
+                ?>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-success">Ciencia</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $ciencia["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $ciencia["autor"];
+                ?>
+              </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $ciencia["resumen"];
+                ?>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fin Fila 3 -->
+
+      <!-- Fila 4 -->
+      <?php
+        include("secciones/cultura.php");
+        include("secciones/gente.php");
+      ?>
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-secondary">Cultura</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $cultura["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $cultura["autor"];
+                ?>
+              </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $cultura["resumen"];
+                ?>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-warning">Nube</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $nube["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $nube["autor"];
+                ?>
+              </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $nube["resumen"];
+                ?>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fin Fila 4 -->      
+
+      <!-- Fila 5 -->
+      <?php
+        include("secciones/deportes.php");
+        include("secciones/television.php");
+        include("secciones/video.php");
+      ?>
+      <div class="row mb-2">
+        <div class="col-md-4">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-primary">Deportes</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $deportes["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $deportes["autor"];
+                ?>
+              </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $deportes["resumen"];
+                ?>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-success">Televisión</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $television["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $television["autor"];
+                ?>
+              </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $television["resumen"];
+                ?>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-success">UNS</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $uns["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $uns["autor"];
+                ?>
+              </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $uns["resumen"];
+                ?>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fin Fila 5 -->
+
+      <!-- Fila 6 -->
+      <?php
+        include("secciones/formacion.php");
+        include("secciones/empleo.php");
+        include("secciones/sociedad.php");
+      ?>
+      <div class="row mb-2">
+        <div class="col-md-4">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-primary">Formación</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $formacion["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $formacion["autor"];
+                ?>
+              </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $formacion["resumen"];
+                ?>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-success">Empleo</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $empleo["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $empleo["autor"];
+                ?>
+              </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $empleo["resumen"];
+                ?>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-success">Sociedad</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $sociedad["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $sociedad["autor"];
+                ?>
+              </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $sociedad["resumen"];
+                ?>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fin Fila 6 -->
+
+      <!-- Fila 7 -->
+      <?php
+        include("secciones/openstack.php");
+        include("secciones/git.php");
+      ?>
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-primary">OpenStack</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $openstack["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $openstack["autor"];
+                ?>
+              </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $openstack["resumen"];
+                ?>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-success">Git</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $git["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $git["autor"];
+                ?>
+              </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $git["resumen"];
+                ?>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fin Fila 7 -->
+
+      <!-- Fila 8 -->
+      <?php
+        include("secciones/contenedores.php");
+        include("secciones/openshift.php");
+      ?>
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-secondary">Contenedores</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $contenedores["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $contenedores["autor"];
+                ?>
+              </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $contenedores["resumen"];
+                ?>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 shadow-sm ">
+            <div class="card-body d-flex flex-column align-items-start col-md-12">
+              <strong class="d-inline-block mb-2 text-warning">Clasificados</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">
+                  <?php
+                    echo $clasificados["titulo"];
+                  ?>
+                </a>
+              </h3>
+              <div class="mb-1 text-muted">
+                <?php
+                  echo $clasificados["autor"];
+                ?>
+              </div>
+              <p class="card-text mb-auto">
+                <?php
+                  echo $clasificados["resumen"];
+                ?>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fin Fila 8 -->
     </div>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <footer class="blog-footer">
+      <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/holder.min.js"></script>
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
   </body>
 </html>

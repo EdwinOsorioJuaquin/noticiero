@@ -4,8 +4,8 @@ SUSTITUYE LAS XXX POR UN VALOR DE UNA NOTICIA DE INTERES EN ESTA CATEGORIA
 *****/
 
 $portada = [
-"titulo" => "Portada",
-"autor" => "jperez",
-"resumen" => "Las noticias mas importantes del 2025",
+"titulo" => "OSORIO JUAQUIN EDWIN",
+"autor" => "eosorio",
+"resumen" => "Ingeniero de Sistemas 2025",
 ];
 ?>
