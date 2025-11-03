@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="https://img.freepik.com/vector-premium/icono-noticias-articulos-periodicos-diseno-color-azul_965649-18264.jpg">
+    <link rel="icon" href="https://drive.google.com/file/d/1Mmu_ZLFGOTqp-mGtHiXPSGUOimetRR4b/view?usp=sharing">
 
     <title>UNS NOTICIAS</title>
 
@@ -54,50 +54,33 @@
       ?>
       <div class="row mb-2">
         <div class="col-md-6">
-          <div class="card flex-md-row mb-4 shadow-sm ">
+          <div class="card flex-md-row mb-4 shadow-sm border-0">
+            <?php if (!empty($internacional["imagen"])): ?>
+              <img src="<?php echo $internacional["imagen"]; ?>" alt="Internacional" class="img-fluid rounded-left" style="width:200px;object-fit:cover;">
+            <?php endif; ?>
             <div class="card-body d-flex flex-column align-items-start col-md-12">
               <strong class="d-inline-block mb-2 text-primary">Internacional</strong>
               <h3 class="mb-0">
-                <a class="text-dark" href="#">
-                  <?php
-                    echo $internacional["titulo"];
-                  ?>
-                </a>
+                <a class="text-dark" href="#"><?php echo $internacional["titulo"]; ?></a>
               </h3>
-              <div class="mb-1 text-muted">
-                <?php
-                  echo $internacional["autor"];
-                ?>
-              </div>
-              <p class="card-text mb-auto">
-                <?php
-                  echo $internacional["resumen"];
-                ?>
-              </p>
+              <div class="mb-1 text-muted"><?php echo $internacional["autor"]; ?></div>
+              <p class="card-text mb-auto"><?php echo $internacional["resumen"]; ?></p>
             </div>
           </div>
         </div>
+
         <div class="col-md-6">
-          <div class="card flex-md-row mb-4 shadow-sm ">
+          <div class="card flex-md-row mb-4 shadow-sm border-0">
+            <?php if (!empty($nacional["imagen"])): ?>
+              <img src="<?php echo $nacional["imagen"]; ?>" alt="Nacional" class="img-fluid rounded-left" style="width:200px;object-fit:cover;">
+            <?php endif; ?>
             <div class="card-body d-flex flex-column align-items-start col-md-12">
               <strong class="d-inline-block mb-2 text-success">Nacional</strong>
               <h3 class="mb-0">
-                <a class="text-dark" href="#">
-                  <?php
-                    echo $nacional["titulo"];
-                  ?>
-                </a>
+                <a class="text-dark" href="#"><?php echo $nacional["titulo"]; ?></a>
               </h3>
-              <div class="mb-1 text-muted">
-                <?php
-                  echo $nacional["autor"];
-                ?>
-              </div>
-              <p class="card-text mb-auto">
-                <?php
-                  echo $nacional["resumen"];
-                ?>
-              </p>
+              <div class="mb-1 text-muted"><?php echo $nacional["autor"]; ?></div>
+              <p class="card-text mb-auto"><?php echo $nacional["resumen"]; ?></p>
             </div>
           </div>
         </div>
